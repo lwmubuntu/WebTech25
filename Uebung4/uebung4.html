@@ -1,121 +1,158 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../cssStyles/bootstrap.min.css">
-  <link rel="stylesheet" href="./myStyles.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../cssStyles/bootstrap.min.css" />
+  <link rel="stylesheet" href="./myStyles.css" />
   <title>Uebung 4</title>
- 
-
-
 </head>
 
 <body>
-
   <main class="container mt-5">
     <div class="card shadow p-4 mb-5 formbox">
       <div class="card-body">
         <h2>Teilnehmerinnen Registrierung</h2>
 
+        <!-- Vorname & Nachname -->
         <div class="row g-3 mb-3">
           <div class="col-12 col-md-6 col-lg-3">
-            <input type="text" class="form-control" id="FirstName" aria-label="First name" placeholder="Vorname">
-           <div class="valid-feedback">Sieht gut aus!</div>
-           <div class="invalid-feedback">Bitte gib deinen Vornamen ein.</div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-3">
-            
-          <input type="text" class="form-control" id="LastName" aria-label="Last name" placeholder="Nachname">
-         <div class="valid-feedback">Sieht gut aus!</div>
-  <div class="invalid-feedback">Bitte gib deinen Nachnamen ein.</div>  
-        </div>
-        </div>
-
-        <div class="row g-3 mb-3">
-          <div class="col-12 col-md-6 col-lg-3">
-            <input type="text" class="form-control" id="E-mail" aria-label="E-mail"placeholder="E-Mail">
-          <div class="valid-feedback">Sieht gut aus!</div>
-  <div class="invalid-feedback">Bitte gib deine Email ein.</div>
+            <input
+              type="text"
+              class="form-control"
+              id="FirstName"
+              aria-label="First name"
+              placeholder="Vorname"
+            />
+            <div class="valid-feedback">Sieht gut aus!</div>
+            <div class="invalid-feedback">Bitte gib deinen Vornamen ein.</div>
           </div>
 
           <div class="col-12 col-md-6 col-lg-3">
-            <input type="text" class="form-control" id="IP-Adresse" aria-label="IP-Adresse"placeholder= IP-Adresse>
-           <div class="valid-feedback">Sieht gut aus!</div>
-  <div class="invalid-feedback">Bitte gib deine IP ein.</div>
+            <input
+              type="text"
+              class="form-control"
+              id="LastName"
+              aria-label="Last name"
+              placeholder="Nachname"
+            />
+            <div class="valid-feedback">Sieht gut aus!</div>
+            <div class="invalid-feedback">Bitte gib deinen Nachnamen ein.</div>
           </div>
         </div>
 
+        <!-- E-Mail & IP -->
         <div class="row g-3 mb-3">
           <div class="col-12 col-md-6 col-lg-3">
-            <button type="button" class="btn btn-primary" onclick="Register()">Registrieren</button>
+            <input
+              type="text"
+              class="form-control"
+              id="E-mail"
+              aria-label="E-mail"
+              placeholder="E-Mail"
+            />
+            <div class="valid-feedback">Sieht gut aus!</div>
+            <div class="invalid-feedback">Bitte gib deine Email ein.</div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-3">
+            <input
+              type="text"
+              class="form-control"
+              id="IP-Adresse"
+              aria-label="IP-Adresse"
+              placeholder="IP-Adresse"
+            />
+            <div class="valid-feedback">Sieht gut aus!</div>
+            <div class="invalid-feedback">Bitte gib deine IP ein.</div>
+          </div>
+        </div>
+
+        <!-- Buttons & Scripts -->
+        <div class="row g-3 mb-3">
+          <!-- Registrieren -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="Register()"
+            >
+              Registrieren
+            </button>
             <ul id="output" class="list-group mt-3"></ul>
-             <script>
+
+            <script>
               function Register() {
-  let firstNameInput = document.getElementById('FirstName');
-  let lastNameInput = document.getElementById('LastName');
-  let emailInput = document.getElementById('E-mail');
-  let ipInput = document.getElementById('IP-Adresse');
+                let firstNameInput = document.getElementById("FirstName");
+                let lastNameInput = document.getElementById("LastName");
+                let emailInput = document.getElementById("E-mail");
+                let ipInput = document.getElementById("IP-Adresse");
 
-  let firstName = firstNameInput.value.trim();
-  let lastName = lastNameInput.value.trim();
-  let email = emailInput.value.trim();
-  let ip = ipInput.value.trim();
+                let firstName = firstNameInput.value.trim();
+                let lastName = lastNameInput.value.trim();
+                let email = emailInput.value.trim();
+                let ip = ipInput.value.trim();
 
-  let isValid = true;
-              
-  function checkField(inputElement, isValidField) {
-    if (isValidField) {
-      inputElement.classList.remove("is-invalid");
-      inputElement.classList.add("is-valid");
-    } else {
-      inputElement.classList.remove("is-valid");
-      inputElement.classList.add("is-invalid");
-      isValid = false;
-    }
-  }
+                let isValid = true;
 
+                function checkField(inputElement, isValidField) {
+                  if (isValidField) {
+                    inputElement.classList.remove("is-invalid");
+                    inputElement.classList.add("is-valid");
+                  } else {
+                    inputElement.classList.remove("is-valid");
+                    inputElement.classList.add("is-invalid");
+                    isValid = false;
+                  }
+                }
 
-  checkField(firstNameInput, firstName !== "");
-  checkField(lastNameInput, lastName !== "");
-  checkField(emailInput, email.includes("@") && email.includes("."));
-  checkField(ipInput, ip !== "");
+                checkField(firstNameInput, firstName !== "");
+                checkField(lastNameInput, lastName !== "");
+                checkField(
+                  emailInput,
+                  email.includes("@") && email.includes(".")
+                );
+                checkField(ipInput, ip !== "");
 
-  if (!isValid) {
-    return;
-  }
+                if (!isValid) {
+                  return;
+                }
 
-  let outputListe = document.querySelector('#output');
-  outputListe.innerHTML = `
-    <li class="list-group-item">Vorname: ${firstName}</li>
-    <li class="list-group-item">Nachname: ${lastName}</li>
-    <li class="list-group-item">E-Mail: ${email}</li>
-    <li class="list-group-item">IP-Adresse: ${ip}</li>`;
-}
-            </script>
-
-          </div>
-          <div class="col-12 col-md-6 col-lg-3">
-            <button type="button" class="btn btn-secondary"onclick="cancel()" >Abbrechen</button>
-            <script >
-               function cancel()
-              {
-                console.log("Abbrechen Button gecklickt")
-                document.getElementById('FirstName').value="";
-                document.getElementById('LastName').value="";
-                document.getElementById('E-mail').value="";
-                document.getElementById('IP-Adresse').value="";
-                console.log("Eingaben wurden geloescht");
+                let outputListe = document.querySelector("#output");
+                outputListe.innerHTML = `
+                  <li class="list-group-item">Vorname: ${firstName}</li>
+                  <li class="list-group-item">Nachname: ${lastName}</li>
+                  <li class="list-group-item">E-Mail: ${email}</li>
+                  <li class="list-group-item">IP-Adresse: ${ip}</li>
+                `;
               }
+            </script>
+          </div>
 
-            </script>           
-              
+          <!-- Abbrechen -->
+          <div class="col-12 col-md-6 col-lg-3">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="cancel()"
+            >
+              Abbrechen
+            </button>
+            <script>
+              function cancel() {
+                console.log("Abbrechen Button geklickt");
+                document.getElementById("FirstName").value = "";
+                document.getElementById("LastName").value = "";
+                document.getElementById("E-mail").value = "";
+                document.getElementById("IP-Adresse").value = "";
+                console.log("Eingaben wurden gelöscht");
+              }
+            </script>
           </div>
         </div>
       </div>
+    </div>
   </main>
 </body>
-
 </html>
